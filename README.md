@@ -14,7 +14,7 @@ License    : GNU (See `license.txt` for details. A copy of GPL is provided as in
 
 Switch to the root folder of the homework. Use the commands below:
 
-    module load gcc/7.3.1
+    module load gcc/5.3.1
     make
 
 Or you could use `make program` instead of `make`.
