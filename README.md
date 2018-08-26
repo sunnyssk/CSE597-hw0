@@ -6,7 +6,7 @@ Author     : Yueze Tan
 
 Email      : yut75@psu.edu
 
-Last update: 2018/08/22
+Last update: 2018/08/26
 
 License    : GNU (See `license.txt` for details. A copy of GPL is provided as in `gpl.txt`.)
 
@@ -35,6 +35,7 @@ The program should generate a line of text on the terminal:
 
 To compile write-ups, switch to folder `writeup`, and type the command
 
+    cd writeup
     ./pdfmake.sh
 
 ## Acknowledgements
