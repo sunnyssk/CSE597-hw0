@@ -36,10 +36,11 @@
 
 % Homework Specific Information
 \newcommand{\hmwkTitle}{Introductions}
-\newcommand{\hmwkDueDate}{Thursday,\ August\  22,\ 2018}
+\newcommand{\hmwkDueDate}{Sunday,\ August\  26,\ 2018}
 \newcommand{\hmwkClass}{Homework 0}
 \newcommand{\hmwkClassTime}{CSE 597}
-\newcommand{\hmwkClassInstructor}{ } \newcommand{\hmwkAuthorNameb}{XYZ\ ZYX.\ YZX}
+\newcommand{\hmwkClassInstructor}{ }
+\newcommand{\hmwkAuthorNameb}{Yueze Tan}
 \newcommand{\hmwkNames}{Yueze Tan}
 
 % Setup the header and footer
@@ -50,7 +51,8 @@
 \renewcommand\headrulewidth{0.4pt}
 \renewcommand\footrulewidth{0.4pt}
 
-
+% Correct bibiography errors
+\bibliographystyle{plainnat}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -71,26 +73,27 @@ By turning in this assignment, I, Yueze Tan, acknowledge that I have received an
 
 \section{Introduction}
 
-My name is Yueze Tan.  I am a second year PhD student in the Materials Sciences and Engineering (MatSE) department. My programming experience includes C/C++/Python/MATLAB and MPI/CUDA parallelization-methods.  When I compute, I typically use ACI-B servers.  My research is all/mostly/some/not computational in nature. 
+My name is Yueze Tan.  I am a second year PhD student in the Materials Sciences and Engineering (MatSE) department. My programming experience includes C/C++/Python/MATLAB and MPI/CUDA parallelization-methods.  When I compute, I typically use ACI-B servers.  My research is mostly computational in nature. 
 
-My area of interest is XYZ. Good general references in my field are \citet{wilcox2000basic} and \citet{kreyszig2010advanced}.  Good computational references in my field are \citet{anderson1995computational} and \citet{wilcox1998turbulence}. 
-
+My area of interest is phase-field method, currently focusing on ferroelectrics. Good general references in my field are \citet{cssem2005} and \citet{pafrm1977}. Good computational references in my field are \citet{pfmmse2010} and \citet{ppfm2017}.
 
 \subsection{Accounts}
 
 I have gotten an account on ACI using \url{https://ics.psu.edu/?page_id=57}.  My ACI username is yut75.
 
-I have gotten an account on XSEDE using \url{https://portal.xsede.org/my-xsede?p_p_id=58&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&saveLastPath=0&_58_struts_action=%2Flogin%2Fcreate_account}.  My username is XYZ.
+I have gotten an account on XSEDE using \url{https://portal.xsede.org/my-xsede?p_p_id=58&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&saveLastPath=0&_58_struts_action=%2Flogin%2Fcreate_account}.  My username is yut75.
 
-I will be making my assignments available using Github. My username is sunnyssk. 
+I will be making my assignments available using Github. My username is sunnyssk. The name of repository is CSE597-hw0.
 
 \subsection{My Course Project}
 
-I am currently thinking about choosing XYZ as my $Ax=b$ problem for the semester project. I believe that this will be a good project because
+I am currently thinking about choosing solving modified Poisson equation with Debye shielding:
+\[(\nabla^2-\lambda_D^{-2})\Phi=\rho_0/\varepsilon\]
+as my $Ax=b$ problem for the semester project. I believe that this will be a good project because
 \begin{itemize}
-  \item reason A
-  \item reason B
-  \item reason ...
+  \item Debye shielding could be used to simulate electric leakage in dielectric systems which are commonly seen in real practices.
+  \item The problem is related only with solving scalar fields, which avoids the complexity in unrolling the high-order tensors.
+  \item The solution could be easily reduced to normal solution of Poisson equation, by simply setting a large Debye length.
 \end{itemize}
 
 
@@ -99,7 +102,7 @@ I am currently thinking about choosing XYZ as my $Ax=b$ problem for the semester
 You can get my assignment onto ACI using the command:
 
 \begin{verbatim}
-git clone USERID@aci-b.aci.ics.psu.edu:/storage/work/a/awl5173/toShare/cse597_fall2018/hw0/psu_cse597-002F18_hw0
+git clone USERID@aci-b.aci.ics.psu.edu:/storage/work/y/yut75/toShare/CSE597/hw/CSE597-hw0
 \end{verbatim}
 
 * Note, test this with us in class or with another person who isn't in the same group(s) as you.
@@ -107,11 +110,14 @@ git clone USERID@aci-b.aci.ics.psu.edu:/storage/work/a/awl5173/toShare/cse597_fa
 \subsection{Program overview}
 
 This is a serial hello world program, written in C++. There is only one code file. The repository also contains the makefile for creating the executable, a readme, licensing information and the TeX file for the write-up.
+Compiled files are not ignored with git in case you feel like running it directly, which might not always be successful although.
 
 
 \subsection{Instructions for running and verifying the code}
 
 \textbf{Creating the executable:}
+Switch to root of this assignment. Then use the following commands:
+
 \begin{verbatim}
 module load gcc/5.3.1
 make
@@ -119,27 +125,32 @@ make
 
 \textbf{Running the program:}
 \begin{verbatim}
-./awl5173_helloWorld.out
+./bin/HelloWorld
 \end{verbatim}
 
 \textbf{Expected output:}
 \begin{verbatim}
-awl5173 says "Hello, World!"
+yut75 says: Hello world!
 \end{verbatim}
 
 \subsection{Instructions for compiling the write-up}
 
-I used ACI to compile the document.  You can do this using the command:
+I used ACI-B to compile the document.  You can do this using the command:
 \begin{verbatim}
+cd writeup
 ./pdfmake.sh
 \end{verbatim}
 
 \section{Acknowledgements}
 
-I would like to acknowledge Chris Blanton and Chuck Pavloski for helping formulate the homework material, and Justin Petucci and Rahim Charania for helping to make sure the permissions were set correctly for the git information.
+In writing of Makefile I referred to GNU online documentations on the following topics to get help:
+\begin{itemize}
+  \item Text functions(\url{https://www.gnu.org/software/make/manual/html_node/Text-Functions.html})
+  \item Filename functions (\url{https://www.gnu.org/software/make/manual/html_node/File-Name-Functions.html})
+\end{itemize}
 
 \bibliographystyle{acm}
-\bibliography{hw0_cse597_27Aug2018_awl5173}
+\bibliography{hw0_cse597_27Aug2018_yut75}
 
 \end{spacing}
 

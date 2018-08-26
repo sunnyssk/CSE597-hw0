@@ -1,0 +1,29 @@
+\begin{thebibliography}{4}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Biner(2017)]{ppfm2017}
+S.~Biner.
+\newblock \emph{Programming Phase-Field Modeling}.
+\newblock Springer, 2017.
+
+\bibitem[Lines and Glass(1977)]{pafrm1977}
+M.~Lines and A.~Glass.
+\newblock \emph{Principles and Applications of Ferroelectrics and Related
+  Materials}.
+\newblock Clarendon Press, 1977.
+
+\bibitem[Provatas and Elder(1998)]{pfmmse2010}
+N.~Provatas and K.~Elder.
+\newblock \emph{Phase-Field Methods in Materials Science and Engineering}.
+\newblock Wiley-VCH, 1998.
+
+\bibitem[Raabe et~al.(2005)Raabe, Roters, Barlat, and Chen]{cssem2005}
+D.~Raabe, F.~Roters, F.~Barlat, and L.-Q. Chen.
+\newblock \emph{Continuum Scale Simulation of Engineering Materials}.
+\newblock Wiley-VCH, 2005.
+
+\end{thebibliography}
